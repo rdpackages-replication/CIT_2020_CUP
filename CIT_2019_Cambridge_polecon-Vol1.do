@@ -25,7 +25,7 @@
 *-------------------------------------------------------------------------------------------------------------*
 *-------------------------------------------------------------------------------------------------------------*
 *-------------------------------------------------------------------------------------------------------------*
-* NOTE: If you are using RDDENSITY version 2020 or newer, the option "nomasspoints(off)" may be needed to 
+* NOTE: If you are using RDDENSITY version 2020 or newer, the option "nomasspoints" may be needed to 
 * replicate the results in the monograph. For example:
 *
 *     rddensity X
