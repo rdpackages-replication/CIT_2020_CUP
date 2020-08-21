@@ -2,14 +2,14 @@
 *-------------------------------------------------------------------------------------------------------------*
 * A Practical Introduction to Regression Discontinuity Designs
 * Authors: Matias D. Cattaneo, Nicolas Idrobo and Rocio Titiunik
-* Last update: 04-AGO-2020
+* Last update: 21-AGO-2020
 *-------------------------------------------------------------------------------------------------------------*
-* SOFTWARE WEBSITE: https://sites.google.com/site/rdpackages/
+* SOFTWARE WEBSITE: https://rdpackages.github.io/
 *-------------------------------------------------------------------------------------------------------------*
 * TO INSTALL STATA PACKAGES:
-* RDROBUST: net install rdrobust, from(https://sites.google.com/site/rdpackages/rdrobust/stata) replace
-* RDDENSITY: net install rddensity, from(https://sites.google.com/site/rdpackages/rddensity/stata) replace
-* RDLOCRAND: net install rdlocrand, from(https://sites.google.com/site/rdpackages/rdlocrand/stata) replace
+* RDROBUST: net install rdrobust, from(https://raw.githubusercontent.com/rdpackages/rdrobust/master/stata) replace
+* RDDENSITY: net install rddensity, from(https://raw.githubusercontent.com/rdpackages/rddensity/master/stata) replace
+* RDLOCRAND: net install rdlocrand, from(https://raw.githubusercontent.com/rdpackages/rdlocrand/master/stata) replace
 * SJLATEX: type "findit sjlatex" and install from "sjlatex from http://www.stata-journal.com/production"
 *-------------------------------------------------------------------------------------------------------------*
 *-------------------------------------------------------------------------------------------------------------*

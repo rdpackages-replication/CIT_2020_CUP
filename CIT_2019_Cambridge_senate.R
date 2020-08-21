@@ -4,7 +4,7 @@
 # Authors: Matias D. Cattaneo, Nicolas Idrobo and Rocio Titiunik
 # Last update: 03-APR-2020
 #------------------------------------------------------------------------------#
-# SOFTWARE WEBSITE: https://sites.google.com/site/rdpackages/
+# SOFTWARE WEBSITE: https://rdpackages.github.io/
 #------------------------------------------------------------------------------#
 # TO INSTALL/DOWNLOAD R PACKAGES/FUNCTIONS:
 # FOREIGN: install.packages('foreign')
