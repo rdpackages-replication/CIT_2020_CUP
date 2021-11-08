@@ -50,10 +50,10 @@ Source: Amarante, Manacorda, Miguel and Vigorito (2016): [Do Cash Transfers Impr
 
 ## References
 
-- Cattaneo, Idrobo and Titiunik (2019): [A Practical Introduction to Regression Discontinuity Designs: Foundations](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2019_CUP.pdf).<br>
+- Cattaneo, Idrobo and Titiunik (2020): [A Practical Introduction to Regression Discontinuity Designs: Foundations](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2020_CUP.pdf).<br>
 _Cambridge Elements: Quantitative and Computational Methods for Social Science_, Cambridge University Press.
 
-- Cattaneo, Idrobo and Titiunik (2020): [A Practical Introduction to Regression Discontinuity Designs: Extensions](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2020_CUP.pdf).<br>
+- Cattaneo, Idrobo and Titiunik (2021): [A Practical Introduction to Regression Discontinuity Designs: Extensions](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2021_CUP.pdf).<br>
 _Cambridge Elements: Quantitative and Computational Methods for Social Science_, Cambridge University Press.
 
 <br><br>
