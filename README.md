@@ -10,17 +10,17 @@ https://rdpackages.github.io/replication
 
 - Source: Meyersson (2014): [Islamic Rule and the Empowerment of the Poor and Pious](https://doi.org/10.3982/ecta9878), _Econometrica_ 82(1): 229-269.
 
-- Dataset: [csv](CIT_2019_Cambridge_polecon.csv) | [dta](CIT_2019_Cambridge_polecon.dta)
+- Dataset: [csv](CIT_2020_Cambridge_polecon.csv) | [dta](CIT_2020_Cambridge_polecon.dta)
 
-- Replication: [R](CIT_2019_Cambridge_polecon-Vol1.R) | [Stata](CIT_2019_Cambridge_polecon-Vol1.do)
+- Replication: [R](CIT_2020_Cambridge_polecon-Vol1.R) | [Stata](CIT_2020_Cambridge_polecon-Vol1.do)
 
 ## Application: Senate Data (canonical, useful for teaching)
 
 - Source: Cattaneo, Frandsen and Titiunik (2015): [Randomization Inference in the Regression Discontinuity Design: An Application to Party Advantages in the U.S. Senate](https://rdpackages.github.io/references/Cattaneo-Frandsen-Titiunik_2015_JCI.pdf), _Journal of Causal Inference_ 3(1): 1-24.
 
-- Dataset: [csv](CIT_2019_Cambridge_senate.csv) | [dta](CIT_2019_Cambridge_senate.dta)
+- Dataset: [csv](CIT_2020_Cambridge_senate.csv) | [dta](CIT_2020_Cambridge_senate.dta)
 
-- Replication: [R](CIT_2019_Cambridge_senate.R) | [Stata](CIT_2019_Cambridge_senate.do)
+- Replication: [R](CIT_2020_Cambridge_senate.R) | [Stata](CIT_2020_Cambridge_senate.do)
 
 ## References
 
