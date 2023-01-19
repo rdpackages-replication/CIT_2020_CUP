@@ -12,7 +12,7 @@ https://rdpackages.github.io/replication
 
 - Dataset: [csv](CIT_2020_Cambridge_polecon.csv) | [dta](CIT_2020_Cambridge_polecon.dta)
 
-- Replication: [R](CIT_2020_Cambridge_polecon-Vol1.R) | [Stata](CIT_2020_Cambridge_polecon-Vol1.do)
+- Replication: [R](CIT_2020_Cambridge_polecon.R) | [Stata](CIT_2020_Cambridge_polecon.do)
 
 ## Application: Senate Data (canonical, useful for teaching)
 
