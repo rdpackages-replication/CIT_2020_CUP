@@ -1,6 +1,6 @@
-# Cattaneo, Idrobo and Titiunik (2019/2020, CUP)
+# Cattaneo, Idrobo and Titiunik (2020/2023, CUP)
 
-This work was supported in part by the National Science Foundation through grants [SES-1357561](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1357561) and [SES-1459931](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1459931).
+This work was supported in part by the National Science Foundation through grants [SES-1357561](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1357561), [SES-1459931](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1459931), [SES-1947805](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1947805), and [SES-2019432](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2019432), and by the National Institutes of Health through grant [R01 GM072611-16](https://reporter.nih.gov/project-details/10093056).
 
 ## Website
 
@@ -12,9 +12,7 @@ https://rdpackages.github.io/replication
 
 - Dataset: [csv](CIT_2019_Cambridge_polecon.csv) | [dta](CIT_2019_Cambridge_polecon.dta)
 
-- Replication Volume I: [R](CIT_2019_Cambridge_polecon-Vol1.R) | [Stata](CIT_2019_Cambridge_polecon-Vol1.do)
-
-- Replication Volume II: R | Stata
+- Replication: [R](CIT_2019_Cambridge_polecon-Vol1.R) | [Stata](CIT_2019_Cambridge_polecon-Vol1.do)
 
 ## Application: Senate Data (canonical, useful for teaching)
 
@@ -24,36 +22,12 @@ https://rdpackages.github.io/replication
 
 - Replication: [R](CIT_2019_Cambridge_senate.R) | [Stata](CIT_2019_Cambridge_senate.do)
 
-## Application: Education Data
-
-- Source: Lindo, Sanders and Oreopoulos (2010): [Ability, Gender, and Performance Standards: Evidence from Academic Probation](https://doi.org/10.1257/app.2.2.95), _American Economic Journal: Applied Economics_ 2(2): 95-117.
-
-- Dataset: csv | dta
-
-- Replication: R | Stata
-
-## Application: Development Data
-
-Source: Amarante, Manacorda, Miguel and Vigorito (2016): [Do Cash Transfers Improve Birth Outcomes? Evidence from Matched Vital Statistics, Program and Social Security Data](https://doi.org/10.1257/pol.20140344), _American Economic Journal: Economic Policy_ 8(2): 1-43.
-
-- Dataset: csv | dta
-
-- Replication: R | Stata
-
-## Application: Multi-Cutoff/Multi-Score/Geographic Data
-
-- Source: TBA.
-
-- Dataset: csv | dta
-
-- Replication: R | Stata
-
 ## References
 
 - Cattaneo, Idrobo and Titiunik (2020): [A Practical Introduction to Regression Discontinuity Designs: Foundations](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2020_CUP.pdf).<br>
 _Cambridge Elements: Quantitative and Computational Methods for Social Science_, Cambridge University Press.
 
-- Cattaneo, Idrobo and Titiunik (2021): [A Practical Introduction to Regression Discontinuity Designs: Extensions](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2021_CUP.pdf).<br>
+- Cattaneo, Idrobo and Titiunik (2023): [A Practical Introduction to Regression Discontinuity Designs: Extensions](https://rdpackages.github.io/references/Cattaneo-Idrobo-Titiunik_2023_CUP.pdf).<br>
 _Cambridge Elements: Quantitative and Computational Methods for Social Science_, Cambridge University Press.
 
 <br><br>
