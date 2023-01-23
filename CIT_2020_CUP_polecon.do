@@ -2,7 +2,7 @@
 *-------------------------------------------------------------------------------------------------------------*
 * A Practical Introduction to Regression Discontinuity Designs: Foundations
 * Authors: Matias D. Cattaneo, Nicolás Idrobo and Rocío Titiunik
-* Last update: 21-AGO-2020
+* Last update: 2023-01-23
 *-------------------------------------------------------------------------------------------------------------*
 * SOFTWARE WEBSITE: https://rdpackages.github.io/
 *-------------------------------------------------------------------------------------------------------------*
@@ -50,7 +50,7 @@ capture noisily mkdir "outputs"
 ** Figures 20, 21, and 22 are only constructed in STATA
 
 ** Loading the data
-use "CIT_2019_Cambridge_polecon.dta", clear
+use "CIT_2020_CUP_polecon.dta", clear
 
 *---------------------*
 * Section 2           *

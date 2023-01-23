@@ -2,7 +2,7 @@
 #------------------------------------------------------------------------------#
 # A Practical Introduction to Regression Discontinuity Designs
 # Authors: Matias D. Cattaneo, Nicolas Idrobo and Rocio Titiunik
-# Last update: 03-APR-2020
+# Last update: 2023-01-23
 #------------------------------------------------------------------------------#
 # SOFTWARE WEBSITE: https://rdpackages.github.io/
 #------------------------------------------------------------------------------#
@@ -46,7 +46,7 @@ library(TeachingDemos)
 options(width=300)
 par(mar = rep(2, 4))
 
-data = read.dta("CIT_2018_Cambridge_senate.dta")
+data = read.dta("CIT_2020_CUP_senate.dta")
 Y = data$demvoteshfor2
 X = data$demmv
 T = (X>=0)
@@ -179,8 +179,8 @@ summary(out)
 # Using rdrobust to show the objects it returns
 rdout = rdrobust(Y, X, kernel = 'triangular', p = 1, bwselect = 'mserd')
 print(names(rdout))
-print(rdout$beta_p_r)
-print(rdout$beta_p_l)
+print(rdout$beta_Y_p_r)
+print(rdout$beta_Y_p_l)
 
 # Code snippet 12
 # Using rdrobust and showing the associated rdplot

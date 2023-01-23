@@ -2,7 +2,7 @@
 *-------------------------------------------------------------------------------------------------------------*
 * A Practical Introduction to Regression Discontinuity Designs
 * Authors: Matias D. Cattaneo, Nicolas Idrobo and Rocio Titiunik
-* Last update: 21-AGO-2020
+* Last update: 2023-01-23
 *-------------------------------------------------------------------------------------------------------------*
 * SOFTWARE WEBSITE: https://rdpackages.github.io/
 *-------------------------------------------------------------------------------------------------------------*
@@ -42,7 +42,7 @@ cap log close
 set more off
 
 ** Loading the data
-use "CIT_2018_Cambridge_senate.dta", clear
+use "CIT_2020_CUP_senate.dta", clear
 
 ** Re-labeling the three main variables
 rename demmv X
@@ -157,13 +157,6 @@ rdplot Y X, binselect(esmv) ///
 rdplot Y X, binselect(qsmv) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
-
-
-
-
-
-
-
 
 *----------------------------------------------*
 * Section 4                                    *
@@ -430,5 +423,5 @@ preserve
 	*/ legend(off)
 restore
 
-*-------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------*
 clear all

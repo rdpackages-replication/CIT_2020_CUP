@@ -1,8 +1,8 @@
 #------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------#
 # A Practical Introduction to Regression Discontinuity Designs: Foundations
-# Authors: Matias D. Cattaneo, Nicolás Idrobo and Rocío Titiunik
-# Last update: 21-AGO-2020
+# Authors: Matias D. Cattaneo, Nicol?s Idrobo and Roc?o Titiunik
+# Last update: 2023-01-23
 #------------------------------------------------------------------------------#
 # SOFTWARE WEBSITE: https://rdpackages.github.io/
 #------------------------------------------------------------------------------#
@@ -30,7 +30,7 @@
 # For example:
 #    out = rddensity(X)
 # should be replaced by:
-#    out = rddensity(X,masspoints=FALSE)
+#    out = rddensity(X,massPoints=FALSE)
 #------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------#
 rm(list=ls())
@@ -55,7 +55,7 @@ tryCatch(dir.create("outputs"))
 # Figures 20, 21, and 22 are only constructed in STATA
 
 # Loading the data and defining the main variables
-data = read.dta("CIT_2019_Cambridge_polecon.dta")
+data = read.dta("CIT_2020_CUP_polecon.dta")
 Y = data$Y
 X = data$X
 T = data$T
@@ -69,16 +69,14 @@ T_X = T*X
 # Raw comparison of means
 pdf("./outputs/Vol-1-R_RDplot-Meyersson-naive-p0.pdf")
 rdplot(Y, X, nbins = c(2500, 500), p = 0, col.lines = "red", col.dots = "black", title = "", 
-       x.label = "Islamic Margin of Victory", y.label = "Female High School Percentage", y.lim = c(0,70), cex.axis = 1.5,
-       cex.lab = 1.5)
+       x.label = "Islamic Margin of Victory", y.label = "Female High School Percentage", y.lim = c(0,70))
 dev.off()
 
 # Figure 3b
 # Local comparison of means
 pdf("./outputs/Vol-1-R_RDplot-Meyersson-naive-p4.pdf")
 rdplot(Y[abs(X) <= 50], X[abs(X) <= 50], nbins = c(2500, 500), p = 4, col.lines = "red", col.dots = "black", title = "", 
-       x.label = "Islamic Margin of Victory", y.label = "Female High School Percentage", y.lim = c(0,70), cex.axis = 1.5,
-       cex.lab = 1.5)
+       x.label = "Islamic Margin of Victory", y.label = "Female High School Percentage", y.lim = c(0,70))
 dev.off()
 
 #-----------#
@@ -88,12 +86,12 @@ dev.off()
 # R Snippet 1 (Figure 5)
 # Scatter plot
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_raw.txt", commands = TRUE, results = FALSE, append = FALSE, visible.only = TRUE)
-plot(X, Y, xlab = "Score", ylab = "Outcome", col = 1, pch = 20, cex.axis = 1.5, cex.lab = 1.5)
+plot(X, Y, xlab = "Score", ylab = "Outcome", col = 1, pch = 20)
 abline(v=0)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_raw.pdf")
-plot(X, Y, xlab = "Score", ylab = "Outcome", col = 1, pch = 20, cex.axis = 1.5, cex.lab = 1.5)
+plot(X, Y, xlab = "Score", ylab = "Outcome", col = 1, pch = 20)
 abline(v=0)
 dev.off()
 
@@ -101,85 +99,84 @@ dev.off()
 # RD plot using 40 bins of equal length
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_esmv_20bins.txt",
          commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X, nbins = c(20,20), binselect = 'esmv', y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X, nbins = c(20,20), binselect = 'esmv', y.lim = c(0,25))
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_esmv_20bins.pdf")
 rdplot(Y, X, nbins = c(20,20), binselect = 'esmv', x.label = 'Score', y.label = 'Outcome', title = '',
-       y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+       y.lim = c(0,25))
 dev.off()
 
 # R Snippet 2 (Figure 7a)
 # 40 Evenly-spaced bins
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_es_20bins.txt", commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X, nbins = c(20,20), binselect = 'es', y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X, nbins = c(20,20), binselect = 'es', y.lim = c(0,25))
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_es_20bins.pdf")
 rdplot(Y, X, nbins = c(20,20), binselect = 'es', x.label = 'Score', y.label = 'Outcome', title = '',
-       y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+       y.lim = c(0,25))
 dev.off()
 
 # R Snippet 3 (Figure 7b)
 # 40 Quantile-spaced bins
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_qs_20bins.txt", commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X, nbins = c(20,20), binselect = 'qs', x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X, nbins = c(20,20), binselect = 'qs', x.lim = c(-100,100), y.lim = c(0,25))
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_qs_20bins.pdf")
 rdplot(Y, X, nbins = c(20,20), binselect = 'qs', x.label = 'Score', y.label = 'Outcome', title = '', 
-       x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+       x.lim = c(-100,100), y.lim = c(0,25))
 dev.off()
 
 # R Snippet 4 (Figure 8)
 # IMSE RD plot with evenly-spaced bins
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_es.txt", commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X,  binselect = 'es', x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X,  binselect = 'es', x.lim = c(-100,100), y.lim = c(0,25))
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_es.pdf")
 rdplot(Y, X,  binselect = 'es', x.label = 'Score', y.label = 'Outcome', title = '', 
-       x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+       x.lim = c(-100,100), y.lim = c(0,25))
 dev.off()
 
 # R Snippet 5 (Figure 9)
 # IMSE RD plot with quantile-spaced bins
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_qs.txt", commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X,  binselect = 'qs', x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X,  binselect = 'qs', x.lim = c(-100,100), y.lim = c(0,25))
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_qs.pdf")
 rdplot(Y, X,  binselect = 'qs', x.label = 'Score', y.label = 'Outcome', title = '', 
-       x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+       x.lim = c(-100,100), y.lim = c(0,25))
 dev.off()
 
 # R Snippet 6 (Figure 10)
 # Mimicking variance RD plot with evenly-spaced bins
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_esmv.txt", commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X,  binselect = 'esmv', cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X,  binselect = 'esmv')
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_esmv.pdf")
-rdplot(Y, X,  binselect = 'esmv', x.label = 'Score', y.label = 'Outcome', title = '', 
-       cex.axis = 1.5, cex.lab = 1.5)
+rdplot(Y, X,  binselect = 'esmv', x.label = 'Score', y.label = 'Outcome', title = '')
 dev.off()
 
 # R Snippet 7 (Figure 11)
 # Mimicking variance RD plot with quantile-spaced bins
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_qsmv.txt", commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
-out = rdplot(Y, X,  binselect = 'qsmv', x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y, X,  binselect = 'qsmv', x.lim = c(-100,100), y.lim = c(0,25))
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_qsmv.pdf")
 rdplot(Y, X,  binselect = 'qsmv', x.label = 'Score', y.label = 'Outcome', title = '',
-       x.lim = c(-100,100), y.lim = c(0,25), cex.axis = 1.5, cex.lab = 1.5)
+       x.lim = c(-100,100), y.lim = c(0,25))
 dev.off()
 
 #----------------------------------------------#
@@ -287,8 +284,8 @@ print(names(rdout)[1:7])
 print(names(rdout)[8:15])
 print(names(rdout)[16:23])
 print(names(rdout)[24:27])
-print(rdout$beta_p_r)
-print(rdout$beta_p_l)
+print(rdout$beta_Y_p_r)
+print(rdout$beta_Y_p_l)
 txtStop()
 
 # R Snippet 19 (Figure 15)
@@ -296,13 +293,13 @@ txtStop()
 txtStart("./outputs/Vol-1-R_meyersson_rdplot_maineffect.txt",
          commands = TRUE, results = TRUE, append = FALSE, visible.only = TRUE)
 bandwidth = rdrobust(Y, X, kernel = 'triangular', p = 1, bwselect = 'mserd')$bws[1,1]
-out = rdplot(Y[abs(X) <= bandwidth], X[abs(X) <= bandwidth], p = 1, kernel = 'triangular', cex.axis = 1.5, cex.lab = 1.5)
+out = rdplot(Y[abs(X) <= bandwidth], X[abs(X) <= bandwidth], p = 1, kernel = 'triangular')
 summary(out)
 txtStop()
 
 pdf("./outputs/Vol-1-R_meyersson_rdplot_maineffect.pdf")
 rdplot(Y[abs(X)<=bandwidth], X[abs(X)<=bandwidth], p = 1, kernel = 'triangular',
-       x.label = 'Score', y.label = 'Outcome', title = '', y.lim = c(10,22), cex.axis = 1.5, cex.lab = 1.5)
+       x.label = 'Score', y.label = 'Outcome', title = '', y.lim = c(10,22))
 dev.off()
 
 # R Snippet 20
@@ -397,32 +394,32 @@ txtStop()
 # RD plots for predetermined covariates
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_lpop1994.pdf")
 rdplot(data$lpop1994, X,
-       x.label = "Score", y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       x.label = "Score", y.label = "", title = "")
 dev.off()
 
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_partycount.pdf")
 rdplot(data$partycount, X,
-       x.label = "Score", y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       x.label = "Score", y.label = "", title = "")
 dev.off()
 
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_vshr_islam1994.pdf")
 rdplot(data$vshr_islam1994, X,
-       x.label = "Score", y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       x.label = "Score", y.label = "", title = "")
 dev.off()
 
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_i89.pdf")
 rdplot(data$i89, X,
-       x.label = "Score", y.label = "", title = "", x.lim = c(-100,100), cex.axis = 1.5, cex.lab = 1.5)
+       x.label = "Score", y.label = "", title = "", x.lim = c(-100,100))
 dev.off()
 
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_merkezp.pdf")
 rdplot(data$merkezp, X,
-       x.label = "Score", y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       x.label = "Score", y.label = "", title = "")
 dev.off()
 
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_merkezi.pdf")
 rdplot(data$merkezi, X,
-       x.label = "Score", y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       x.label = "Score", y.label = "", title = "")
 dev.off()
 
 # R Snippet 29
@@ -452,7 +449,7 @@ bandwidth = rdrobust(data$lpop1994, X)$bws[1,1]
 xlim = ceiling(bandwidth)
 rdplot(data$lpop1994[abs(X) <= bandwidth], X[abs(X) <= bandwidth],
        p = 1, kernel = 'triangular', x.lim = c(-xlim, xlim), x.label = "Score",
-       y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       y.label = "", title = "")
 txtStop()
 
 # Figure 17
@@ -462,7 +459,7 @@ xlim = ceiling(bandwidth)
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_rdrobust_lpop1994.pdf")
 rdplot(data$lpop1994[abs(X) <= bandwidth], X[abs(X) <= bandwidth],
        p = 1, kernel = 'triangular', x.lim = c(-xlim, xlim), x.label = "Score",
-       y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       y.label = "", title = "")
 dev.off()
 
 bandwidth = rdrobust(data$partycount, X)$bws[1,1]
@@ -470,7 +467,7 @@ xlim = ceiling(bandwidth)
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_rdrobust_partycount.pdf")
 rdplot(data$partycount[abs(X) <= bandwidth], X[abs(X) <= bandwidth],
        p = 1, kernel = 'triangular', x.lim = c(-xlim, xlim), x.label = "Score",
-       y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       y.label = "", title = "")
 dev.off()
 
 bandwidth = rdrobust(data$vshr_islam1994, X)$bws[1,1]
@@ -478,7 +475,7 @@ xlim = ceiling(bandwidth)
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_rdrobust_vshr_islam1994.pdf")
 rdplot(data$vshr_islam1994[abs(X) <= bandwidth], X[abs(X) <= bandwidth],
        p = 1, kernel = 'triangular', x.lim = c(-xlim, xlim), x.label = "Score",
-       y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       y.label = "", title = "")
 dev.off()
 
 bandwidth = rdrobust(data$i89, X)$bws[1,1]
@@ -486,7 +483,7 @@ xlim = ceiling(bandwidth)
 pdf("./outputs/Vol-1-R_meyersson_falsification_rdplot_rdrobust_i89.pdf")
 rdplot(data$i89[abs(X) <= bandwidth], X[abs(X) <= bandwidth],
        p = 1, kernel = 'triangular', x.lim = c(-xlim, xlim), x.label = "Score",
-       y.label = "", title = "", cex.axis = 1.5, cex.lab = 1.5)
+       y.label = "", title = "")
 dev.off()
 
 # R Snippet 31
