@@ -2,7 +2,7 @@
 *-------------------------------------------------------------------------------------------------------------*
 * A Practical Introduction to Regression Discontinuity Designs
 * Authors: Matias D. Cattaneo, Nicolas Idrobo and Rocio Titiunik
-* Last update: 2023-01-23
+* Last update: 2023-10-05
 *-------------------------------------------------------------------------------------------------------------*
 * SOFTWARE WEBSITE: https://rdpackages.github.io/
 *-------------------------------------------------------------------------------------------------------------*
@@ -70,30 +70,9 @@ rdplot Y X if abs(X)<=50, nbins(2500 500) p(4)
 ** Table 2.1
 ** Descriptive statistics
 global sumstats "X Y T presdemvoteshlag1 demvoteshlag1 demvoteshlag2 demwinprv1 demwinprv2 dmidterm dpresdem dopen"
-matrix define R = J(11, 6, .)
-local k = 1
 foreach x of global sumstats {
 	quietly summarize `x', detail
-	local label_`k': variable label `x'
-	matrix R[`k', 1] = r(mean)
-	matrix R[`k', 2] = r(p50)
-	matrix R[`k', 3] = r(sd)
-	matrix R[`k', 4] = r(min)
-	matrix R[`k', 5] = r(max)
-	matrix R[`k', 6] = r(N)
-	local k = `k' + 1
 }
-
-preserve
-	clear
-	local t = `k' - 1
-	svmat R
-	gen R0 = ""
-	forvalues k = 1 / `t' {
-		replace R0 = "`label_`k''" if _n == `k'
-	}
-	order R0
-restore
 
 *-----------*
 * Section 3 *
@@ -277,33 +256,9 @@ rdrobust demvoteshlag1 X
 ** Table 5.1
 ** Formal continuity-based analysis for covariates
 global covariates "presdemvoteshlag1 demvoteshlag1 demvoteshlag2 demwinprv1 demwinprv2 dmidterm dpresdem dopen"
-matrix define R = J(8, 8, .)
-local k = 1
 foreach y of global covariates {
 	rdrobust `y' X, all
-	local label_`k': variable label `y'
-	matrix R[`k', 1] = e(h_l)
-	matrix R[`k', 2] = e(tau_cl)
-	matrix R[`k', 3] = e(tau_bc)
-	matrix R[`k', 4] = e(se_tau_rb)
-	matrix R[`k', 5] = 2 * normal(-abs(R[`k', 3] / R[`k', 4]))
-	matrix R[`k', 6] = R[`k', 3] - invnormal(0.975) * R[`k', 4]
-	matrix R[`k', 7] = R[`k', 3] + invnormal(0.975) * R[`k', 4]
-	matrix R[`k', 8] = e(N_h_l) + e(N_h_r)
-	
-	local k = `k' + 1
 }
-
-preserve
-	clear
-	local t = `k' - 1
-	svmat R
-	gen R0 = ""
-	forvalues k = 1 / `t' {
-		replace R0 = "`label_`k''" if _n == `k'
-	}
-	order R0
-restore
 
 ** Code snippet 2
 ** Using rdplot to show the rdrobust effect for demvoteshlag1
