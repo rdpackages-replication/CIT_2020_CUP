@@ -2,7 +2,7 @@
 *-------------------------------------------------------------------------------------------------------------*
 * A Practical Introduction to Regression Discontinuity Designs: Foundations
 * Authors: Matias D. Cattaneo, Nicolás Idrobo and Rocío Titiunik
-* Last update: 2023-10-05
+* Last update: 2024-01-09
 *-------------------------------------------------------------------------------------------------------------*
 * SOFTWARE WEBSITE: https://rdpackages.github.io/
 *-------------------------------------------------------------------------------------------------------------*
@@ -10,7 +10,6 @@
 * RDROBUST: net install rdrobust, from(https://raw.githubusercontent.com/rdpackages/rdrobust/master/stata) replace
 * RDDENSITY: net install rddensity, from(https://raw.githubusercontent.com/rdpackages/rddensity/master/stata) replace
 * RDLOCRAND: net install rdlocrand, from(https://raw.githubusercontent.com/rdpackages/rdlocrand/master/stata) replace
-* SJLATEX: type "findit sjlatex" and install from "sjlatex from http://www.stata-journal.com/production"
 *-------------------------------------------------------------------------------------------------------------*
 *-------------------------------------------------------------------------------------------------------------*
 * NOTE: If you are using RDROBUST version 2020 or newer, the option "masspoints(off) stdvars(on)" may be
@@ -70,7 +69,7 @@ summarize $sumstats, detail
 * Section 3 *
 * RD Plots  *
 *-----------*
-** Stata Snippet 1 (Figure 5)
+** Code snippet 1 (Figure 5)
 ** Scatter plot
 twoway (scatter Y X, ///
 	mcolor(black) xline(0, lcolor(black))), ///
@@ -87,37 +86,37 @@ rdplot Y X, nbins(20 20) binselect(esmv) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
 
-** Stata Snippet 2 (Figure 7a)
+** Code snippet 2 (Figure 7a)
 ** 40 Evenly-spaced bins
 rdplot Y X, nbins(20 20) binselect(es) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
 
-** Stata Snippet 3 (Figure 7b)
+** Code snippet 3 (Figure 7b)
 ** 40 Quantile-spaced bins
 rdplot Y X, nbins(20 20) binselect(qs) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
 
-** Stata Snippet 4 (Figure 8)
+** Code snippet 4 (Figure 8)
 ** IMSE RD plot with evenly-spaced bins
 rdplot Y X, binselect(es) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
 
-** Stata Snippet 5 (Figure 9)
+** Code snippet 5 (Figure 9)
 ** IMSE RD plot with quantile-spaced bins
 rdplot Y X, binselect(qs) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
 
-** Stata Snippet 6 (Figure 10)
+** Code snippet 6 (Figure 10)
 ** Mimicking variance RD plot with evenly-spaced bins
 rdplot Y X, binselect(esmv) ///
 	graph_options(graphregion(color(white)) ///
 	xtitle(Score) ytitle(Outcome))
 
-** Stata Snippet 7 (Figure 11)
+** Code snippet 7 (Figure 11)
 ** Mimicking variance RD plot with quantile-spaced bins
 rdplot Y X, binselect(qsmv) ///
 	graph_options(graphregion(color(white)) ///
@@ -127,7 +126,7 @@ rdplot Y X, binselect(qsmv) ///
 * Section 4                                    *
 * The Continuity-Based Approach to RD Analysis *
 *----------------------------------------------*
-** Stata Snippet 8
+** Code snippet 8
 ** Using two regressions to estimate
 reg Y X if X < 0 & X >= -20
 matrix coef_left = e(b)
@@ -138,18 +137,18 @@ local intercept_right = coef_right[1, 2]
 local difference = `intercept_right' - `intercept_left'
 display "The RD estimator is `difference'"
 
-** Stata Snippet 9
+** Code snippet 9
 ** Using one regression to estimate
 gen T_X = X * T
 reg Y X T T_X if X >= -20 & X <= 20
 
-** Stata Snippet 10
+** Code snippet 10
 ** Generating triangular weights
 gen weights = .
 replace weights = (1 - abs(X / 20)) if X < 0 & X >= -20
 replace weights = (1 - abs(X / 20)) if X >= 0 & X <= 20
 
-** Stata Snippet 11
+** Code snippet 11
 ** Using two regressions and weights to estimate
 reg Y X [aw = weights] if X < 0 & X >= -20
 matrix coef_left = e(b)
@@ -160,77 +159,77 @@ local intercept_right = coef_right[1, 2]
 local difference = `intercept_right' - `intercept_left'
 display "The RD estimator is `difference'"
 
-** Stata Snippet 12
+** Code snippet 12
 ** Using rdrobust with uniform weights
 rdrobust Y X, kernel(uniform) p(1) h(20)
 
-** Stata Snippet 13
+** Code snippet 13
 ** Using rdrobust with triangular weights
 rdrobust Y X, kernel(triangular) p(1) h(20)
 
-** Stata Snippet 14
+** Code snippet 14
 ** Using rdrobust with triangular weights and p=2
 rdrobust Y X, kernel(triangular) p(2) h(20)
 
-** Stata Snippet 15
+** Code snippet 15
 ** Using rdbwselect with mserd bandwidth
 rdbwselect Y X, kernel(triangular) p(1) bwselect(mserd)
 
-** Stata Snippet 16
+** Code snippet 16
 ** Using rdbwselect with msetwo bandwidth
 rdbwselect Y X, kernel(triangular) p(1) bwselect(msetwo)
 
-** Stata Snippet 17
+** Code snippet 17
 ** Using rdrobust with mserd bandwidth
 rdrobust Y X, kernel(triangular) p(1) bwselect(mserd)
 
-** Stata Snippet 18
+** Code snippet 18
 ** Using rdrobust to show the objects it returns
 rdrobust Y X
 ereturn list
 
-** Stata Snippet 19 (Figure 15)
+** Code snippet 19 (Figure 15)
 ** Using rdrobust and showing the associated rdplot
 rdrobust Y X, p(1) kernel(triangular) bwselect(mserd)
 local bandwidth = e(h_l)
 rdplot Y X if abs(X) <= `bandwidth', p(1) h(`bandwidth') kernel(triangular)
 
-** Stata Snippet 20
+** Code snippet 20
 ** Using rdrobust without regularization term
 rdrobust Y X, kernel(triangular) p(1) bwselect(mserd) scaleregul(0)
 
-** Stata Snippet 21
+** Code snippet 21
 ** Using rdrobust with default options
 rdrobust Y X, kernel(triangular) p(1) bwselect(mserd)
 
-** Stata Snippet 22
+** Code snippet 22
 ** Using rdrobust with default options and showing all the output
 rdrobust Y X, kernel(triangular) p(1) bwselect(mserd) all
 
-** Stata Snippet 23
+** Code snippet 23
 ** Using rdrobust with cerrd bandwidth
 rdrobust Y X, kernel(triangular) p(1) bwselect(cerrd)
 
-** Stata Snippet 24
+** Code snippet 24
 ** Using rdbwselect with all the bandwidths
 rdbwselect Y X, kernel(triangular) p(1) all
 
-** Stata Snippet 25
+** Code snippet 25
 ** Using rdbwselect with covariates
 global covariates "vshr_islam1994 partycount lpop1994 merkezi merkezp subbuyuk buyuk"
 rdbwselect Y X, covs($covariates) p(1) kernel(triangular) bwselect(mserd) scaleregul(1)
 
-** Stata Snippet 26
+** Code snippet 26
 ** Using rdrobust with covariates
 global covariates "vshr_islam1994 partycount lpop1994 merkezi merkezp subbuyuk buyuk"
 rdrobust Y X, covs($covariates) p(1) kernel(triangular) bwselect(mserd) scaleregul(1)
 
-** Stata Snippet 27
+** Code snippet 27
 ** Using rdrobust with clusters
 rdrobust Y X, p(1) kernel(triangular) bwselect(mserd) ///
 	scaleregul(1) vce(nncluster prov_num)
 
-** Stata Snippet 28
+** Code snippet 28
 ** Using rdrobust with clusters and covariates
 global covariates "vshr_islam1994 partycount lpop1994 merkezi merkezp subbuyuk buyuk"
 rdrobust Y X, covs($covariates) p(1) kernel(triangular) bwselect(mserd) ///
@@ -246,7 +245,7 @@ foreach y of varlist lpop1994 partycount vshr_islam1994 i89 merkezp merkezi {
 	rdplot `y' X, graph_options(xtitle("Score"))
 }
 
-** Stata Snippet 29
+** Code snippet 29
 ** Using rdrobust on lpop1994
 rdrobust lpop1994 X
 
@@ -263,7 +262,7 @@ foreach y of global covariates {
 	rdrobust `y' X, all bwselect(cerrd)
 }
 
-** Stata Snippet 30
+** Code snippet 30
 ** Using rdplot to show the rdrobust effect for lpop1994
 rdrobust lpop1994 X
 local bandwidth = e(h_l)
@@ -278,11 +277,11 @@ foreach y of varlist lpop1994 partycount vshr_islam1994 i89 {
 		graph_options(xtitle("Score"))
 }
 
-** Stata Snippet 31
+** Code snippet 31
 ** Binomial test
 bitesti 100 53 1/2
 
-** Stata Snippet 32
+** Code snippet 32
 ** Using rddensity
 rddensity X
 
@@ -304,7 +303,7 @@ local bandwidth_left = e(h_l)
 local bandwidth_right = e(h_r)
 rddensity X, plot plot_range(-`bandwidth_left' `bandwidth_right')
 
-** Stata Snippet 33
+** Code snippet 33
 ** Using rdrobust with the cutoff equal to 1
 rdrobust Y X if X >= 0, c(1)
 
@@ -324,7 +323,7 @@ forvalues x = -3(1)3 {
 	rdrobust Y X `condition', c(`x')
 }
 
-** Stata Snippet 34
+** Code snippet 34
 ** Using rdrobust for the donut-hole approach
 rdrobust Y X if abs(X) >= 0.3
 
@@ -337,6 +336,7 @@ forvalues k = 0(0.1)0.5 {
 ** Figure 22
 ** Sensitivity to bandwidth in the continuity-based approach
 global bandwidths "17.239 34.478 11.629 23.258"
+matrix define R = J(4,9,.)
 local r = 1
 foreach k of global bandwidths {
 	rdrobust Y X, h(`k')
@@ -362,5 +362,5 @@ twoway (rcap R7 R8 R1, lcolor(navy)) ///
 	graphregion(color(white)) xlabel(17.239 34.478 11.629 23.258) ///
 	ytitle("RD Treatment Effect") legend(off) xtitle("Bandwidth")
 	
-*-------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------*
 clear all

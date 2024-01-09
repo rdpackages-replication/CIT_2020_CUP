@@ -2,7 +2,7 @@
 #------------------------------------------------------------------------------#
 # A Practical Introduction to Regression Discontinuity Designs: Foundations
 # Authors: Matias D. Cattaneo, Nicolas Idrobo and Rocio Titiunik
-# Last update: 2023-10-05
+# Last update: 2024-01-09
 #------------------------------------------------------------------------------#
 # SOFTWARE WEBSITE: https://rdpackages.github.io/
 #------------------------------------------------------------------------------#
@@ -14,7 +14,6 @@
 # RDDENSITY: install.packages('rddensity')
 # RDLOCRAND: install.packages('rdlocrand')
 # RDROBUST: install.packages('rdrobust')
-# TEACHINGDEMOS: install.packages('TeachingDemos')
 #------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------#
 # NOTE: if you are using RDROBUST version 2020 or newer, the option 
@@ -41,7 +40,6 @@ library(lpdensity)
 library(rddensity)
 library(rdrobust)
 library(rdlocrand)
-library(TeachingDemos)
 
 # Tables 1, 2, 4, 5, and 6 are only constructed in STATA
 # Figures 20, 21, and 22 are only constructed in STATA

@@ -14,7 +14,7 @@ https://rdpackages.github.io/replication
 
 - Dataset: [csv](CIT_2020_CUP_polecon.csv) | [dta](CIT_2020_CUP_polecon.dta)
 
-- Replication: [R](CIT_2020_CUP_polecon.R) | [Stata](CIT_2020_CUP_polecon.do)
+- Replication: [Python](CIT_2020_CUP_polecon.py) | [R](CIT_2020_CUP_polecon.R) | [Stata](CIT_2020_CUP_polecon.do)
 
 ## Application: Senate Data (canonical, useful for teaching)
 
@@ -22,7 +22,7 @@ https://rdpackages.github.io/replication
 
 - Dataset: [csv](CIT_2020_CUP_senate.csv) | [dta](CIT_2020_CUP_senate.dta)
 
-- Replication: [R](CIT_2020_CUP_senate.R) | [Stata](CIT_2020_CUP_senate.do)
+- Replication: [Python](CIT_2020_CUP_senate.py) | [R](CIT_2020_CUP_senate.R) | [Stata](CIT_2020_CUP_senate.do)
 
 
 ## References
