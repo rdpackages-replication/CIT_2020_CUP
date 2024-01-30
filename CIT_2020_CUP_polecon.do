@@ -2,7 +2,6 @@
 *-------------------------------------------------------------------------------------------------------------*
 * A Practical Introduction to Regression Discontinuity Designs: Foundations
 * Authors: Matias D. Cattaneo, Nicolás Idrobo and Rocío Titiunik
-* Last update: 2024-01-09
 *-------------------------------------------------------------------------------------------------------------*
 * SOFTWARE WEBSITE: https://rdpackages.github.io/
 *-------------------------------------------------------------------------------------------------------------*
